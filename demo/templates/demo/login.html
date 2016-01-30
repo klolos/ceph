@@ -1,0 +1,29 @@
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include 'demo/metadata.html' %}
+    <title>Ceph Demo - {{ title }}</title>
+    {% include 'demo/static_files.html' %}
+    <!-- Custom bootstrap styles for the login page -->
+    <link href="{% static 'demo/css/signin.css' %}" rel="stylesheet">
+    <!-- My custom styles for the login page -->
+    <link href="{% static 'demo/css/my-signin.css' %}" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <form class="form-signin" action="{% url 'demo:request_login' %}"
+            method="post">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        {% include 'demo/messages.html' %}
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button class="btn btn-lg btn-primary btn-block" 
+                type="submit">Sign in</button>
+      </form>
+    </div> <!-- /container -->
+  </body>
+</html>
+

@@ -1,0 +1,36 @@
+{% extends 'demo/base.html' %}
+
+{% block content %}
+{% include 'demo/messages.html' %}
+<h1 class="page-header">Dashboard</h1>
+{% include 'demo/graphs.html' %}
+<h2 class="sub-header">
+{% if data %}
+  {{ data|length }} Objects Available
+{% else %}
+  No Objects Available
+{% endif %}
+ - <a href="{% url 'demo:create' %}">Create New</a>
+</h2>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Object Name</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for object_name in data %}
+      <tr>
+        <td>{{ forloop.counter }}</td>
+        <td><a href="{% url 'demo:details' object_name %}">
+            {{ object_name }}</a></td>
+        <td><a href="{% url 'demo:edit' object_name %}">edit</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

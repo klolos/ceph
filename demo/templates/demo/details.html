@@ -1,0 +1,29 @@
+{% extends 'demo/base.html' %}
+
+{% block content %}
+
+<h1 class="page-header">Contents of {{ object_name }}</h1>
+{% include 'demo/messages.html' %}
+
+<form name="delete_button" method="post" 
+      action="{% url 'demo:delete' object_name %}">
+  {% csrf_token %}
+  {% if data %}
+    <div class="jumbotron">
+      <p class="lead" id="detailsbox">{{ data }}</p>
+    </div>
+    <a class="btn btn-lg btn-primary" 
+       href="{% url 'demo:edit' object_name %}" role="button">Edit</a>
+    <a class="btn btn-lg btn-primary" 
+       href="{% url 'demo:index' %}" role="button">Back</a>
+    <input type="hidden" name="supporttype" />
+    <input type="submit" value="Delete" class="btn btn-lg btn-danger"/>
+  {% else %}
+    <h4>Object <strong>{{ object_name }}</strong> not found.</h4><br>
+    <a class="btn btn-lg btn-primary" 
+       href="{% url 'demo:index' %}" role="button">Back</a>
+  {% endif %}
+</form>
+
+{% endblock %}
+
