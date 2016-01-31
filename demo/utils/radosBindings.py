@@ -11,6 +11,20 @@ TIMEOUT   = 2
 cluster   = None
 
 
+def _connect():
+    global cluster
+    try:
+        new_cluster = rados.Rados(conffile=CEPH_CONF, conf=dict(keyring=KEYRING))
+        new_cluster.connect(timeout=TIMEOUT)
+        cluster = new_cluster
+        print "*** Connection Established ***"
+    except:
+        try:
+            new_cluster.shutdown()
+        finally:
+            cluster = None
+            print "*** Could not establish connection ***"
+
 def _test_connection():
     try:
         test_conn = rados.Rados(conffile=CEPH_CONF, conf=dict(keyring=KEYRING))
@@ -26,18 +40,13 @@ def _test_connection():
         except:
             pass
 
-def _connect(): 
+def _maintain_connection(): 
     global cluster
     while True:
+        time.sleep(20)
         if _test_connection():
             if cluster is None:
-                try:
-                    new_cluster = rados.Rados(conffile=CEPH_CONF, conf=dict(keyring=KEYRING))
-                    new_cluster.connect(timeout=TIMEOUT)
-                    cluster = new_cluster
-                    print "*** Connection Established ***"
-                except:
-                    print "*** Could not establish connection ***"
+                _connect()
         else:
             if cluster is not None:
                 try:
@@ -45,20 +54,13 @@ def _connect():
                 finally:
                     cluster = None
                     print "*** Shut down previous connection ***"
-        time.sleep(20)
             
-threading.Thread(target=_connect).start()
-
 def connected(ret_type):
     def decorator(f):
         def wrapped(*args, **kwargs):
             try:
-                print "*** Submitting Query ***"
-                ret = f(*args, **kwargs)
-                print "*** Query succeeded ***"
-                return ret
+                return f(*args, **kwargs)
             except:
-                print "*** Query failed ***"
                 return ret_type()
         return wrapped
     return decorator
@@ -95,4 +97,7 @@ def is_valid_name(name):
 def startup_cluster():
     from subprocess import call
     call(['start-ceph'])
+
+_connect()
+threading.Thread(target=_maintain_connection).start()
 

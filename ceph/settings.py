@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'v()%z@w+92+07)x6!64!h#zdy0f_!=*rhcn6gvq9hn9b2b3cs='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['192.168.1.4', '192.168.94.139', '192.168.90.116', 'localhost', '127.0.0.1']
 
@@ -102,7 +102,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LOGIN_URL = '/demo/accounts/login/'
+LOGIN_URL = '/demo/auth/login/'
 
 
 # Internationalization

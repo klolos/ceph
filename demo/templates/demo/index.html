@@ -10,7 +10,7 @@
 {% else %}
   No Objects Available
 {% endif %}
- - <a href="{% url 'demo:create' %}">Create New</a>
+ - <a href="{% url 'demo:object' 'new-object' %}?view=createform">Create New</a>
 </h2>
 <div class="table-responsive">
   <table class="table table-striped">
@@ -25,9 +25,9 @@
       {% for object_name in data %}
       <tr>
         <td>{{ forloop.counter }}</td>
-        <td><a href="{% url 'demo:details' object_name %}">
+        <td><a href="{% url 'demo:object' object_name %}">
             {{ object_name }}</a></td>
-        <td><a href="{% url 'demo:edit' object_name %}">edit</a></td>
+        <td><a href="{% url 'demo:object' object_name %}?view=editform">edit</a></td>
       </tr>
       {% endfor %}
     </tbody>
