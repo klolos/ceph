@@ -47,12 +47,10 @@ def object_view(request, object_name):
     return dispatch(request, handlers)
 
 def dispatch(request, handlers):
-    
     if not request.method in handlers:
         # TODO 405 page
         messages.add_message(request, messages.ERROR, 'Invalid request.')
         return HttpResponseRedirect(reverse('demo:container'))
-
     return handlers[request.method](request)
 
 """ 
@@ -71,13 +69,13 @@ def present_login_form(request):
 
 def login_user(request):
     if request.method != 'POST':
-        messages.add_message(request, messages.INFO,
+        messages.add_message(request, messages.ERROR,
                              'Invalid request.')
         return HttpResponseRedirect(reverse('demo:login'))
 
     form = LoginForm(request.POST)
     if not form.is_valid():
-        messages.add_message(request, messages.INFO,
+        messages.add_message(request, messages.ERROR,
                              'Invalid credentials.')
         return HttpResponseRedirect(reverse('demo:login'))
         
@@ -86,12 +84,12 @@ def login_user(request):
     next_url = form.cleaned_data['next_url']
     user = authenticate(username=username, password=password)
     if user is None:
-        messages.add_message(request, messages.INFO,
+        messages.add_message(request, messages.ERROR,
                              'Incorrect username of password.')
         return HttpResponseRedirect(reverse('demo:login'))
 
     if not user.is_active:
-        messages.add_message(request, messages.INFO,
+        messages.add_message(request, messages.ERROR,
                              'Sorry, this account has been disabled.')
         return HttpResponseRedirect(reverse('demo:login'))
 
@@ -107,7 +105,7 @@ def logout_user(request):
 """
 def present_object_container(request):
     context = {
-        'data': sorted(rados.get_object_list()),
+        'data' : sorted(rados.get_object_list()),
         'title': 'Dashboard',
     }
     return render(request, 'demo/index.html', context)
@@ -118,13 +116,14 @@ def present_object_container(request):
 def present_object(object_name):
     def handler(request):
         data = rados.get_data(object_name)
-        view = request.GET.get('view', 'html')
-        views = {
-            'html'      : object_view_html,
-            'editform'  : object_view_editform,
-            'createform': create_object_form,
-        }
-        return views[view](request, object_name, data)
+        view = request.GET.get('view')
+        if view == 'createform':
+            renderer = create_object_form
+        elif view == 'editform':
+            renderer = object_view_editform
+        else:
+            renderer = object_view_html
+        return renderer(request, object_name, data)
     return handler
 
 def object_view_html(request, object_name, data):
@@ -230,7 +229,7 @@ def create_new_object(request):
     else:
         messages.add_message(request, messages.ERROR,
                              'Unable to complete the request.')
-                             
+
     return HttpResponseRedirect(reverse('demo:object', args=(object_name,)))
 
 
