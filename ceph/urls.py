@@ -16,10 +16,10 @@ from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
 import demo
-from demo import views as demo_views
+from demo import views
 
 urlpatterns = [
-    url(r'^$', demo_views.home, name='home'),
+    url(r'^$', views.home, name='home'),
     url(r'^demo/', include('demo.urls')),
     url(r'^admin/', admin.site.urls),
 ] # + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

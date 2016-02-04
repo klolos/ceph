@@ -5,7 +5,7 @@ DJANGODIR=/home/kostis/git/django/ceph # Django project directory
 SOCKFILE=$DJANGODIR/run/gunicorn.sock  # we will communicte using this unix socket
 USER=kostis                            # the user to run as
 GROUP=kostis                           # the group to run as
-NUM_WORKERS=2                          # how many worker processes should Gunicorn spawn
+NUM_WORKERS=9                          # how many worker processes should Gunicorn spawn
 DJANGO_SETTINGS_MODULE=ceph.settings   # which settings file should Django use
 DJANGO_WSGI_MODULE=ceph.wsgi           # WSGI module name
 

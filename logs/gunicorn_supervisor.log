@@ -26497,3 +26497,1877 @@ error: Domain is already active
 *** Connection OK ***
 [2016-02-02 00:20:32 +0000] [5892] [INFO] Worker exiting (pid: 5892)
 *** Connection OK ***
+Starting ceph-demo as kostis
+[2016-02-03 10:18:07 +0000] [1541] [DEBUG] Current configuration:
+  proxy_protocol: False
+  worker_connections: 1000
+  statsd_host: None
+  max_requests_jitter: 0
+  post_fork: <function post_fork at 0x7fc5c7881488>
+  pythonpath: None
+  enable_stdio_inheritance: False
+  worker_class: sync
+  ssl_version: 3
+  suppress_ragged_eofs: True
+  syslog: False
+  syslog_facility: user
+  when_ready: <function when_ready at 0x7fc5c78811b8>
+  pre_fork: <function pre_fork at 0x7fc5c7881320>
+  cert_reqs: 0
+  preload_app: False
+  keepalive: 2
+  accesslog: None
+  group: 1000
+  graceful_timeout: 30
+  do_handshake_on_connect: False
+  spew: False
+  workers: 2
+  proc_name: ceph-demo
+  sendfile: None
+  pidfile: None
+  umask: 0
+  on_reload: <function on_reload at 0x7fc5c7881050>
+  pre_exec: <function pre_exec at 0x7fc5c7881a28>
+  worker_tmp_dir: None
+  post_worker_init: <function post_worker_init at 0x7fc5c78815f0>
+  limit_request_fields: 100
+  on_exit: <function on_exit at 0x7fc5c7885140>
+  config: gunicorn_config.py
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  proxy_allow_ips: ['127.0.0.1']
+  pre_request: <function pre_request at 0x7fc5c7881b90>
+  post_request: <function post_request at 0x7fc5c7881c80>
+  user: 1000
+  forwarded_allow_ips: ['127.0.0.1']
+  worker_int: <function worker_int at 0x7fc5c7881758>
+  threads: 1
+  max_requests: 0
+  limit_request_line: 4094
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  certfile: None
+  worker_exit: <function worker_exit at 0x7fc5c7881de8>
+  chdir: /home/kostis/git/django/ceph
+  paste: None
+  default_proc_name: ceph.wsgi:application
+  errorlog: -
+  loglevel: debug
+  logconfig: None
+  syslog_addr: udp://localhost:514
+  syslog_prefix: None
+  daemon: False
+  ciphers: TLSv1
+  on_starting: <function on_starting at 0x7fc5c7875410>
+  worker_abort: <function worker_abort at 0x7fc5c78818c0>
+  bind: ['unix:/home/kostis/git/django/ceph/run/gunicorn.sock']
+  raw_env: []
+  reload: False
+  check_config: False
+  limit_request_field_size: 8190
+  nworkers_changed: <function nworkers_changed at 0x7fc5c7881f50>
+  timeout: 30
+  ca_certs: None
+  django_settings: None
+  tmp_upload_dir: None
+  keyfile: None
+  backlog: 2048
+  logger_class: gunicorn.glogging.Logger
+  statsd_prefix: 
+[2016-02-03 10:18:07 +0000] [1541] [INFO] Starting gunicorn 19.4.5
+Domain admin-node started
+
+Domain node1 started
+
+Domain node2 started
+
+Domain node3 started
+
+[2016-02-03 10:18:10 +0000] [1541] [DEBUG] Arbiter booted
+[2016-02-03 10:18:10 +0000] [1541] [INFO] Listening at: unix:/home/kostis/git/django/ceph/run/gunicorn.sock (1541)
+[2016-02-03 10:18:10 +0000] [1541] [INFO] Using worker: sync
+[2016-02-03 10:18:10 +0000] [2089] [INFO] Booting worker with pid: 2089
+[2016-02-03 10:18:10 +0000] [2090] [INFO] Booting worker with pid: 2090
+[2016-02-03 10:18:10 +0000] [1541] [DEBUG] 2 workers
+[2016-02-03 11:56:01 +0000] [2090] [DEBUG] GET /demo/api/objects
+Not Found: /demo/api/objects
+[2016-02-03 11:56:11 +0000] [2089] [DEBUG] GET /demo/api/objects/
+*** Connection Established ***
+*** Connection Established ***
+[2016-02-03 11:56:41 +0000] [2089] [DEBUG] GET /demo/api/objects/ls
+Not Found: /demo/api/objects/ls
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+[2016-02-03 11:57:44 +0000] [2089] [DEBUG] GET /demo/api/objects/
+*** Connection OK ***
+[2016-02-03 11:57:54 +0000] [2090] [DEBUG] GET /demo/api/objects/asdf/
+*** Connection OK ***
+[2016-02-03 11:58:02 +0000] [2090] [DEBUG] GET /demo/api/objects/
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+[2016-02-03 11:58:50 +0000] [2089] [DEBUG] GET /demo/api/objects/
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+[2016-02-03 11:59:23 +0000] [2089] [DEBUG] GET /demo/api/objects/
+*** Connection OK ***
+*** Connection OK ***
+[2016-02-03 11:59:43 +0000] [2089] [DEBUG] GET /demo/api/objects/
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+[2016-02-03 12:00:45 +0000] [2090] [DEBUG] POST /demo/api/objects/
+*** Connection OK ***
+*** Connection OK ***
+[2016-02-03 12:01:02 +0000] [2090] [DEBUG] DELETE /demo/api/objects/fdsa/
+[2016-02-03 12:01:08 +0000] [2090] [DEBUG] DELETE /demo/api/objects/fdsa/
+*** Connection OK ***
+[2016-02-03 12:01:13 +0000] [2090] [DEBUG] GET /demo/api/objects/
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+[2016-02-03 12:09:39 +0000] [2090] [DEBUG] GET /demo/api/objects/
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+[2016-02-03 13:56:40 +0000] [2089] [DEBUG] GET /
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+[2016-02-03 13:57:05 +0000] [2090] [DEBUG] GET /
+[2016-02-03 13:57:06 +0000] [2090] [DEBUG] GET /.git/HEAD
+Not Found: /.git/HEAD
+[2016-02-03 13:57:06 +0000] [2090] [DEBUG] PROPFIND /
+[2016-02-03 13:57:06 +0000] [2089] [DEBUG] GET /robots.txt
+Forbidden (CSRF cookie not set.): /
+Not Found: /robots.txt
+[2016-02-03 13:57:06 +0000] [2090] [DEBUG] POST /
+Forbidden (CSRF cookie not set.): /
+[2016-02-03 13:57:06 +0000] [2090] [DEBUG] OPTIONS /
+[2016-02-03 13:57:06 +0000] [2089] [DEBUG] ENFI /
+Forbidden (CSRF cookie not set.): /
+[2016-02-03 13:57:06 +0000] [2089] [DEBUG] OPTIONS /
+[2016-02-03 13:57:06 +0000] [2089] [DEBUG] PROPFIND /
+Forbidden (CSRF cookie not set.): /
+[2016-02-03 13:57:06 +0000] [2089] [DEBUG] GET /
+[2016-02-03 13:57:06 +0000] [2090] [DEBUG] GET /nmaplowercheck1454500625
+Not Found: /nmaplowercheck1454500625
+[2016-02-03 13:57:06 +0000] [2090] [DEBUG] PROPFIND /
+Forbidden (CSRF cookie not set.): /
+[2016-02-03 13:57:07 +0000] [2089] [DEBUG] HEAD /
+[2016-02-03 13:57:07 +0000] [2090] [DEBUG] GET /HNAP1
+Not Found: /HNAP1
+[2016-02-03 13:57:07 +0000] [2089] [DEBUG] POST /
+Forbidden (CSRF cookie not set.): /
+[2016-02-03 13:57:07 +0000] [2089] [DEBUG] OPTIONS /
+[2016-02-03 13:57:08 +0000] [2090] [DEBUG] GET /favicon.ico
+[2016-02-03 13:57:08 +0000] [2089] [DEBUG] GET /
+Not Found: /favicon.ico
+[2016-02-03 13:57:08 +0000] [2089] [DEBUG] GET /
+[2016-02-03 13:57:09 +0000] [2089] [DEBUG] OPTIONS /
+[2016-02-03 13:57:09 +0000] [2090] [DEBUG] OPTIONS /
+[2016-02-03 13:57:09 +0000] [2089] [DEBUG] OPTIONS /
+[2016-02-03 13:57:09 +0000] [2089] [DEBUG] OPTIONS /
+[2016-02-03 13:57:09 +0000] [2090] [DEBUG] OPTIONS /
+[2016-02-03 13:57:09 +0000] [2089] [DEBUG] OPTIONS /
+[2016-02-03 13:57:10 +0000] [2089] [DEBUG] OPTIONS /
+[2016-02-03 13:57:10 +0000] [2089] [DEBUG] OPTIONS /
+[2016-02-03 13:57:10 +0000] [2089] [DEBUG] OPTIONS /
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+[2016-02-03 14:01:29 +0000] [2090] [DEBUG] GET /
+[2016-02-03 14:01:29 +0000] [2089] [DEBUG] GET /demo/ui/objects/
+[2016-02-03 14:01:29 +0000] [2090] [DEBUG] GET /demo/auth/login/
+[2016-02-03 14:01:29 +0000] [2089] [DEBUG] GET /demo/auth/login/demo/favicon.ico
+Not Found: /demo/auth/login/demo/favicon.ico
+*** Connection OK ***
+*** Connection OK ***
+[2016-02-03 14:01:43 +0000] [2089] [DEBUG] POST /demo/auth/login/
+[2016-02-03 14:01:43 +0000] [2089] [DEBUG] GET /demo/auth/login/
+[2016-02-03 14:01:43 +0000] [2090] [DEBUG] GET /favicon.ico
+Not Found: /favicon.ico
+[2016-02-03 14:01:51 +0000] [2090] [DEBUG] POST /demo/auth/login/
+[2016-02-03 14:01:51 +0000] [2089] [DEBUG] GET /demo/auth/login/
+*** Connection OK ***
+*** Connection OK ***
+[2016-02-03 14:02:12 +0000] [2090] [DEBUG] GET /demo
+Not Found: /demo
+*** Connection OK ***
+[2016-02-03 14:02:14 +0000] [2089] [DEBUG] GET /demo
+Not Found: /demo
+*** Connection OK ***
+[2016-02-03 14:02:22 +0000] [2090] [DEBUG] GET /admin
+Not Found: /admin
+[2016-02-03 14:02:22 +0000] [2089] [DEBUG] GET /admin/
+[2016-02-03 14:02:22 +0000] [2089] [DEBUG] GET /admin/login/
+[2016-02-03 14:02:29 +0000] [2089] [DEBUG] POST /admin/login/
+*** Connection OK ***
+[2016-02-03 14:02:37 +0000] [2089] [DEBUG] POST /admin/login/
+[2016-02-03 14:02:40 +0000] [2089] [DEBUG] POST /admin/login/
+*** Connection OK ***
+[2016-02-03 14:02:43 +0000] [2090] [DEBUG] POST /admin/login/
+*** Connection OK ***
+*** Connection OK ***
+[2016-02-03 14:03:07 +0000] [2090] [DEBUG] GET /
+[2016-02-03 14:03:07 +0000] [2089] [DEBUG] GET /demo/ui/objects/
+[2016-02-03 14:03:07 +0000] [2089] [DEBUG] GET /demo/auth/login/
+*** Connection OK ***
+[2016-02-03 14:03:14 +0000] [2089] [DEBUG] GET /demo
+Not Found: /demo
+*** Connection OK ***
+*** Connection OK ***
+[2016-02-03 14:03:33 +0000] [2089] [DEBUG] GET /admin/
+[2016-02-03 14:03:33 +0000] [2089] [DEBUG] GET /admin/login/
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+[2016-02-03 14:05:20 +0000] [2089] [DEBUG] POST /admin/login/
+*** Connection OK ***
+[2016-02-03 14:05:23 +0000] [2090] [DEBUG] POST /admin/login/
+[2016-02-03 14:05:24 +0000] [2089] [DEBUG] POST /admin/login/
+[2016-02-03 14:05:29 +0000] [2089] [DEBUG] POST /admin/login/
+[2016-02-03 14:05:31 +0000] [2089] [DEBUG] POST /admin/login/
+*** Connection OK ***
+[2016-02-03 14:05:33 +0000] [2089] [DEBUG] POST /admin/login/
+[2016-02-03 14:05:37 +0000] [2089] [DEBUG] POST /admin/login/
+[2016-02-03 14:05:39 +0000] [2089] [DEBUG] POST /admin/login/
+[2016-02-03 14:05:40 +0000] [2090] [DEBUG] POST /admin/login/
+*** Connection OK ***
+*** Connection OK ***
+[2016-02-03 14:06:00 +0000] [2089] [DEBUG] POST /admin/login/
+[2016-02-03 14:06:02 +0000] [2089] [DEBUG] POST /admin/login/
+*** Connection OK ***
+[2016-02-03 14:06:04 +0000] [2090] [DEBUG] POST /admin/login/
+[2016-02-03 14:06:06 +0000] [2089] [DEBUG] POST /admin/login/
+[2016-02-03 14:06:07 +0000] [2090] [DEBUG] POST /admin/login/
+[2016-02-03 14:06:09 +0000] [2089] [DEBUG] POST /admin/login/
+[2016-02-03 14:06:11 +0000] [2090] [DEBUG] POST /admin/login/
+*** Connection OK ***
+[2016-02-03 14:06:13 +0000] [2089] [DEBUG] POST /admin/login/
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+[2016-02-03 15:34:13 +0000] [2090] [DEBUG] GET /
+[2016-02-03 15:34:14 +0000] [2090] [DEBUG] GET /robots.txt
+[2016-02-03 15:34:14 +0000] [2089] [DEBUG] GET /
+Not Found: /robots.txt
+[2016-02-03 15:34:14 +0000] [2089] [DEBUG] OPTIONS /
+[2016-02-03 15:34:14 +0000] [2089] [DEBUG] GET /.git/HEAD
+Not Found: /.git/HEAD
+[2016-02-03 15:34:14 +0000] [2090] [DEBUG] OPTIONS /
+[2016-02-03 15:34:14 +0000] [2089] [DEBUG] OPTIONS /
+[2016-02-03 15:34:14 +0000] [2090] [DEBUG] GET /favicon.ico
+Not Found: /favicon.ico
+[2016-02-03 15:34:14 +0000] [2089] [DEBUG] GET /
+[2016-02-03 15:34:14 +0000] [2089] [DEBUG] OPTIONS /
+[2016-02-03 15:34:14 +0000] [2089] [DEBUG] OPTIONS /
+[2016-02-03 15:34:14 +0000] [2089] [DEBUG] OPTIONS /
+[2016-02-03 15:34:14 +0000] [2089] [DEBUG] OPTIONS /
+[2016-02-03 15:34:14 +0000] [2089] [DEBUG] OPTIONS /
+[2016-02-03 15:34:14 +0000] [2090] [DEBUG] OPTIONS /
+[2016-02-03 15:34:14 +0000] [2090] [DEBUG] OPTIONS /
+*** Connection OK ***
+[2016-02-03 15:34:24 +0000] [2089] [DEBUG] GET /
+[2016-02-03 15:34:25 +0000] [2089] [DEBUG] OPTIONS /
+[2016-02-03 15:34:25 +0000] [2090] [DEBUG] GET /robots.txt
+Not Found: /robots.txt
+[2016-02-03 15:34:25 +0000] [2089] [DEBUG] OPTIONS /
+[2016-02-03 15:34:25 +0000] [2089] [DEBUG] GET /
+[2016-02-03 15:34:25 +0000] [2089] [DEBUG] GET /.git/HEAD
+Not Found: /.git/HEAD
+[2016-02-03 15:34:25 +0000] [2090] [DEBUG] OPTIONS /
+[2016-02-03 15:34:25 +0000] [2090] [DEBUG] GET /favicon.ico
+[2016-02-03 15:34:25 +0000] [2089] [DEBUG] OPTIONS /
+Not Found: /favicon.ico
+[2016-02-03 15:34:25 +0000] [2089] [DEBUG] GET /
+[2016-02-03 15:34:25 +0000] [2090] [DEBUG] OPTIONS /
+[2016-02-03 15:34:25 +0000] [2090] [DEBUG] OPTIONS /
+[2016-02-03 15:34:25 +0000] [2089] [DEBUG] OPTIONS /
+[2016-02-03 15:34:25 +0000] [2090] [DEBUG] OPTIONS /
+[2016-02-03 15:34:25 +0000] [2089] [DEBUG] OPTIONS /
+[2016-02-03 15:34:25 +0000] [2089] [DEBUG] OPTIONS /
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+[2016-02-03 15:35:52 +0000] [1541] [INFO] Handling signal: term
+[2016-02-03 15:35:52 +0000] [2090] [INFO] Worker exiting (pid: 2090)
+[2016-02-03 15:35:52 +0000] [2089] [INFO] Worker exiting (pid: 2089)
+*** Connection OK ***
+*** Connection OK ***
+Starting ceph-demo as kostis
+[2016-02-03 15:36:03 +0000] [4862] [DEBUG] Current configuration:
+  proxy_protocol: False
+  worker_connections: 1000
+  statsd_host: None
+  max_requests_jitter: 0
+  post_fork: <function post_fork at 0x7f2a8bf23488>
+  pythonpath: None
+  enable_stdio_inheritance: False
+  worker_class: sync
+  ssl_version: 3
+  suppress_ragged_eofs: True
+  syslog: False
+  syslog_facility: user
+  when_ready: <function when_ready at 0x7f2a8bf231b8>
+  pre_fork: <function pre_fork at 0x7f2a8bf23320>
+  cert_reqs: 0
+  preload_app: False
+  keepalive: 2
+  accesslog: None
+  group: 1000
+  graceful_timeout: 30
+  do_handshake_on_connect: False
+  spew: False
+  workers: 2
+  proc_name: ceph-demo
+  sendfile: None
+  pidfile: None
+  umask: 0
+  on_reload: <function on_reload at 0x7f2a8bf23050>
+  pre_exec: <function pre_exec at 0x7f2a8bf23a28>
+  worker_tmp_dir: None
+  post_worker_init: <function post_worker_init at 0x7f2a8bf235f0>
+  limit_request_fields: 100
+  on_exit: <function on_exit at 0x7f2a8bf27140>
+  config: gunicorn_config.py
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  proxy_allow_ips: ['127.0.0.1']
+  pre_request: <function pre_request at 0x7f2a8bf23b90>
+  post_request: <function post_request at 0x7f2a8bf23c80>
+  user: 1000
+  forwarded_allow_ips: ['127.0.0.1']
+  worker_int: <function worker_int at 0x7f2a8bf23758>
+  threads: 1
+  max_requests: 0
+  limit_request_line: 4094
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  certfile: None
+  worker_exit: <function worker_exit at 0x7f2a8bf23de8>
+  chdir: /home/kostis/git/django/ceph
+  paste: None
+  default_proc_name: ceph.wsgi:application
+  errorlog: -
+  loglevel: debug
+  logconfig: None
+  syslog_addr: udp://localhost:514
+  syslog_prefix: None
+  daemon: False
+  ciphers: TLSv1
+  on_starting: <function on_starting at 0x7f2a8bf17410>
+  worker_abort: <function worker_abort at 0x7f2a8bf238c0>
+  bind: ['unix:/home/kostis/git/django/ceph/run/gunicorn.sock']
+  raw_env: []
+  reload: False
+  check_config: False
+  limit_request_field_size: 8190
+  nworkers_changed: <function nworkers_changed at 0x7f2a8bf23f50>
+  timeout: 30
+  ca_certs: None
+  django_settings: None
+  tmp_upload_dir: None
+  keyfile: None
+  backlog: 2048
+  logger_class: gunicorn.glogging.Logger
+  statsd_prefix: 
+[2016-02-03 15:36:03 +0000] [4862] [INFO] Starting gunicorn 19.4.5
+error: Domain is already active
+
+error: Domain is already active
+
+error: Domain is already active
+
+error: Domain is already active
+
+[2016-02-03 15:36:03 +0000] [4862] [DEBUG] Arbiter booted
+[2016-02-03 15:36:03 +0000] [4862] [INFO] Listening at: unix:/home/kostis/git/django/ceph/run/gunicorn.sock (4862)
+[2016-02-03 15:36:03 +0000] [4862] [INFO] Using worker: sync
+[2016-02-03 15:36:03 +0000] [4882] [INFO] Booting worker with pid: 4882
+[2016-02-03 15:36:03 +0000] [4885] [INFO] Booting worker with pid: 4885
+[2016-02-03 15:36:03 +0000] [4862] [DEBUG] 2 workers
+[2016-02-03 20:05:36 +0000] [4862] [INFO] Handling signal: term
+[2016-02-03 20:05:36 +0000] [4885] [INFO] Worker exiting (pid: 4885)
+[2016-02-03 20:05:36 +0000] [4882] [INFO] Worker exiting (pid: 4882)
+[2016-02-03 20:05:36 +0000] [4862] [INFO] Shutting down: Master
+Starting ceph-demo as kostis
+[2016-02-03 22:28:59 +0000] [1584] [DEBUG] Current configuration:
+  proxy_protocol: False
+  worker_connections: 1000
+  statsd_host: None
+  max_requests_jitter: 0
+  post_fork: <function post_fork at 0x7fa7e9387488>
+  pythonpath: None
+  enable_stdio_inheritance: False
+  worker_class: sync
+  ssl_version: 3
+  suppress_ragged_eofs: True
+  syslog: False
+  syslog_facility: user
+  when_ready: <function when_ready at 0x7fa7e93871b8>
+  pre_fork: <function pre_fork at 0x7fa7e9387320>
+  cert_reqs: 0
+  preload_app: False
+  keepalive: 2
+  accesslog: None
+  group: 1000
+  graceful_timeout: 30
+  do_handshake_on_connect: False
+  spew: False
+  workers: 2
+  proc_name: ceph-demo
+  sendfile: None
+  pidfile: None
+  umask: 0
+  on_reload: <function on_reload at 0x7fa7e9387050>
+  pre_exec: <function pre_exec at 0x7fa7e9387a28>
+  worker_tmp_dir: None
+  post_worker_init: <function post_worker_init at 0x7fa7e93875f0>
+  limit_request_fields: 100
+  on_exit: <function on_exit at 0x7fa7e938b140>
+  config: gunicorn_config.py
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  proxy_allow_ips: ['127.0.0.1']
+  pre_request: <function pre_request at 0x7fa7e9387b90>
+  post_request: <function post_request at 0x7fa7e9387c80>
+  user: 1000
+  forwarded_allow_ips: ['127.0.0.1']
+  worker_int: <function worker_int at 0x7fa7e9387758>
+  threads: 1
+  max_requests: 0
+  limit_request_line: 4094
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  certfile: None
+  worker_exit: <function worker_exit at 0x7fa7e9387de8>
+  chdir: /home/kostis/git/django/ceph
+  paste: None
+  default_proc_name: ceph.wsgi:application
+  errorlog: -
+  loglevel: debug
+  logconfig: None
+  syslog_addr: udp://localhost:514
+  syslog_prefix: None
+  daemon: False
+  ciphers: TLSv1
+  on_starting: <function on_starting at 0x7fa7e937b410>
+  worker_abort: <function worker_abort at 0x7fa7e93878c0>
+  bind: ['unix:/home/kostis/git/django/ceph/run/gunicorn.sock']
+  raw_env: []
+  reload: False
+  check_config: False
+  limit_request_field_size: 8190
+  nworkers_changed: <function nworkers_changed at 0x7fa7e9387f50>
+  timeout: 30
+  ca_certs: None
+  django_settings: None
+  tmp_upload_dir: None
+  keyfile: None
+  backlog: 2048
+  logger_class: gunicorn.glogging.Logger
+  statsd_prefix: 
+[2016-02-03 22:28:59 +0000] [1584] [INFO] Starting gunicorn 19.4.5
+Domain admin-node started
+
+Domain node1 started
+
+Domain node2 started
+
+Domain node3 started
+
+[2016-02-03 22:29:02 +0000] [1584] [DEBUG] Arbiter booted
+[2016-02-03 22:29:02 +0000] [1584] [INFO] Listening at: unix:/home/kostis/git/django/ceph/run/gunicorn.sock (1584)
+[2016-02-03 22:29:02 +0000] [1584] [INFO] Using worker: sync
+[2016-02-03 22:29:02 +0000] [2075] [INFO] Booting worker with pid: 2075
+[2016-02-03 22:29:02 +0000] [2076] [INFO] Booting worker with pid: 2076
+[2016-02-03 22:29:02 +0000] [1584] [DEBUG] 2 workers
+[2016-02-03 22:57:51 +0000] [2075] [DEBUG] GET /
+[2016-02-03 22:57:51 +0000] [2075] [DEBUG] GET /demo/ui/objects/
+[2016-02-03 22:57:51 +0000] [2075] [DEBUG] GET /demo/ui/objects/demo/favicon.ico
+*** Connection Established ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+[2016-02-03 23:03:07 +0000] [2076] [DEBUG] GET /demo/ui/objects/
+*** Connection OK ***
+*** Connection Established ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+*** Connection OK ***
+[2016-02-03 23:06:16 +0000] [1584] [INFO] Handling signal: term
+[2016-02-03 23:06:16 +0000] [2075] [INFO] Worker exiting (pid: 2075)
+*** Connection FAILED ***
+*** Shut down previous connection ***
+[2016-02-03 23:06:16 +0000] [2076] [INFO] Worker exiting (pid: 2076)
+*** Connection OK ***
+Starting ceph-demo as kostis
+[2016-02-03 23:06:49 +0000] [1568] [DEBUG] Current configuration:
+  proxy_protocol: False
+  worker_connections: 1000
+  statsd_host: None
+  max_requests_jitter: 0
+  post_fork: <function post_fork at 0x7f4f144ec488>
+  pythonpath: None
+  enable_stdio_inheritance: False
+  worker_class: sync
+  ssl_version: 3
+  suppress_ragged_eofs: True
+  syslog: False
+  syslog_facility: user
+  when_ready: <function when_ready at 0x7f4f144ec1b8>
+  pre_fork: <function pre_fork at 0x7f4f144ec320>
+  cert_reqs: 0
+  preload_app: False
+  keepalive: 2
+  accesslog: None
+  group: 1000
+  graceful_timeout: 30
+  do_handshake_on_connect: False
+  spew: False
+  workers: 2
+  proc_name: ceph-demo
+  sendfile: None
+  pidfile: None
+  umask: 0
+  on_reload: <function on_reload at 0x7f4f144ec050>
+  pre_exec: <function pre_exec at 0x7f4f144eca28>
+  worker_tmp_dir: None
+  post_worker_init: <function post_worker_init at 0x7f4f144ec5f0>
+  limit_request_fields: 100
+  on_exit: <function on_exit at 0x7f4f144f0140>
+  config: gunicorn_config.py
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  proxy_allow_ips: ['127.0.0.1']
+  pre_request: <function pre_request at 0x7f4f144ecb90>
+  post_request: <function post_request at 0x7f4f144ecc80>
+  user: 1000
+  forwarded_allow_ips: ['127.0.0.1']
+  worker_int: <function worker_int at 0x7f4f144ec758>
+  threads: 1
+  max_requests: 0
+  limit_request_line: 4094
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  certfile: None
+  worker_exit: <function worker_exit at 0x7f4f144ecde8>
+  chdir: /home/kostis/git/django/ceph
+  paste: None
+  default_proc_name: ceph.wsgi:application
+  errorlog: -
+  loglevel: debug
+  logconfig: None
+  syslog_addr: udp://localhost:514
+  syslog_prefix: None
+  daemon: False
+  ciphers: TLSv1
+  on_starting: <function on_starting at 0x7f4f144e0410>
+  worker_abort: <function worker_abort at 0x7f4f144ec8c0>
+  bind: ['unix:/home/kostis/git/django/ceph/run/gunicorn.sock']
+  raw_env: []
+  reload: False
+  check_config: False
+  limit_request_field_size: 8190
+  nworkers_changed: <function nworkers_changed at 0x7f4f144ecf50>
+  timeout: 30
+  ca_certs: None
+  django_settings: None
+  tmp_upload_dir: None
+  keyfile: None
+  backlog: 2048
+  logger_class: gunicorn.glogging.Logger
+  statsd_prefix: 
+[2016-02-03 23:06:49 +0000] [1568] [INFO] Starting gunicorn 19.4.5
+Domain admin-node started
+
+Domain node1 started
+
+Domain node2 started
+
+Domain node3 started
+
+[2016-02-03 23:06:52 +0000] [1568] [DEBUG] Arbiter booted
+[2016-02-03 23:06:52 +0000] [1568] [INFO] Listening at: unix:/home/kostis/git/django/ceph/run/gunicorn.sock (1568)
+[2016-02-03 23:06:52 +0000] [1568] [INFO] Using worker: sync
+[2016-02-03 23:06:52 +0000] [2108] [INFO] Booting worker with pid: 2108
+[2016-02-03 23:06:52 +0000] [2109] [INFO] Booting worker with pid: 2109
+[2016-02-03 23:06:52 +0000] [1568] [DEBUG] 2 workers
+[2016-02-03 23:13:58 +0000] [1568] [INFO] Handling signal: term
+[2016-02-03 23:13:58 +0000] [2109] [INFO] Worker exiting (pid: 2109)
+[2016-02-03 23:13:58 +0000] [2108] [INFO] Worker exiting (pid: 2108)
+[2016-02-03 23:13:58 +0000] [1568] [INFO] Shutting down: Master

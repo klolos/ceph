@@ -16,7 +16,55 @@ import json
 from lxml import etree
 
 
+# Django's default token generator
+from django.contrib.auth.models import User
+from django.contrib.auth.tokens import default_token_generator
+def authenticate_dtg(key, pk):
+    try:
+        user = User.objects.get(pk=pk)
+    except:
+        return False
+    return default_token_generator.check_token(user, key) 
+
+def authenticated_dtg(f):
+    def wrapped(request, *args, **kwargs):
+        token   = request.META.get('HTTP_X_AUTH_TOKEN', None)
+        user_id = request.META.get('HTTP_USER', None)
+        if token is None or user_id is None or \
+            not authenticate_dtg(token, user_id):
+            return response_code(401) # Unauthorized
+        return f(request, *args, **kwargs)
+    return wrapped
+
+
+# rest framework's token authentication
+from rest_framework.authtoken.models import Token
+def authenticate(key):
+    return Token.objects.filter(pk=key)
+    #print tokens, [t.user for t in tokens]
+
+def authenticated(f):
+    def wrapped(request, *args, **kwargs):
+        token = request.META.get('HTTP_X_AUTH_TOKEN', None)
+        if not authenticate(token):
+            return response_code(401) # Unauthorized
+        return f(request, *args, **kwargs)
+    return wrapped
+
 @csrf_exempt
+def tokens(request):
+    handlers = {
+        'POST': send_token,
+    }
+    return dispatch(request, handlers)
+
+def send_token(request):
+    # TODO
+    return response_code(200)
+
+
+@csrf_exempt
+@authenticated
 def object_container(request):
     handlers = {
         'GET' : present_object_container,
@@ -25,6 +73,7 @@ def object_container(request):
     return dispatch(request, handlers)
 
 @csrf_exempt
+@authenticated
 def object_view(request, object_name):
     handlers = {
         'GET'   : present_object(object_name),

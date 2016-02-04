@@ -9,6 +9,8 @@ urlpatterns = [
     url(r'^auth/login/$', ui_views.login, name='login'),
     # /auth/logout/          (GET)
     url(r'^auth/logout/$', ui_views.logout, name='logout'),
+    # /auth/tokens/ 
+    url(r'^auth/tokens/$', api_views.tokens, name='tokens'),
     # /ui/objects/           (GET, POST)
     url(r'^ui/objects/$', ui_views.object_container, name='container'),
     # /ui/objects/myobject/  (GET, PUT, DELETE)
