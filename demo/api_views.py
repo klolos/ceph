@@ -108,7 +108,8 @@ def dispatch(request, handlers):
 """
 def present_object_container(request):
     content_type = request.META.get('CONTENT_TYPE', 'application/json')
-    objects = sorted(rados.get_object_list(request.user))
+    user = request.user.username
+    objects = sorted(rados.get_object_list(user))
     if 'application/xml' in content_type:
         return container_xml(request, objects)
     else:
@@ -139,7 +140,8 @@ def create_new_object(request):
         return invalid_object_name_error()
     if not data:
         return empty_object_body_error()
-    if rados.store_object(request.user, object_name, data):
+    user = request.user.username
+    if rados.store_object(user, object_name, data):
         return object_created(object_name)
     else:
         return service_temporarily_unavailable_error()
@@ -149,7 +151,8 @@ def create_new_object(request):
 """
 def present_object(object_name):
     def handler(request):
-        data = rados.get_data(request.user, object_name)
+        user = request.user.username
+        data = rados.get_data(user, object_name)
         if data:
             return HttpResponse(data, content_type="text/plain")
         else:
@@ -162,7 +165,8 @@ def update_object(object_name):
             return invalid_object_name_error()
         if not request.body:
             return empty_object_body_error()
-        if rados.store_object(request.user, object_name, request.body):
+        user = request.user.username
+        if rados.store_object(user, object_name, request.body):
             return object_created(object_name)
         else:
             return service_temporarily_unavailable_error()
@@ -170,7 +174,8 @@ def update_object(object_name):
 
 def delete_object(object_name):
     def handler(request):
-        if rados.delete_object(request.user, object_name):
+        user = request.user.username
+        if rados.delete_object(user, object_name):
             return response_code(204) # no content
         else:
             return response_code(404) # not found
