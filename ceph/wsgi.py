@@ -26,6 +26,6 @@ def application2(environ, start_response):
     start_response('200 OK', [('Content-Type', 'text/html')])
     import pprint, sys
     print >> sys.stderr, pprint.pformat(environ)
-    yield 'Hello World\n<br>'
+    yield 'Hello World<br>'
     yield 'More content'
 

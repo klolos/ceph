@@ -1,11 +1,13 @@
 import rados
 import re
+import os
 import time
 import threading
 import signal
 
-CEPH_CONF = 'demo/utils/ceph.conf'
-KEYRING   = 'demo/utils/ceph.client.admin.keyring'
+CONF_DIR  = '/home/kostis/git/django/ceph/demo/utils'
+CEPH_CONF = os.path.join(CONF_DIR, 'ceph.conf')
+KEYRING   = os.path.join(CONF_DIR, 'ceph.client.admin.keyring')
 POOL      = 'data'
 TIMEOUT   = 2
 cluster   = None
@@ -21,6 +23,8 @@ def _connect():
     except:
         try:
             new_cluster.shutdown()
+        except:
+            pass
         finally:
             cluster = None
             print "*** Could not establish connection ***"
@@ -51,6 +55,8 @@ def _maintain_connection():
             if cluster is not None:
                 try:
                     cluster.shutdown()
+                except:
+                    pass
                 finally:
                     cluster = None
                     print "*** Shut down previous connection ***"
@@ -66,29 +72,29 @@ def connected(ret_type):
     return decorator
 
 @connected(ret_type=list)
-def get_object_list():
+def get_object_list(user):
     ioctx = cluster.open_ioctx(POOL)
     return [o.key for o in ioctx.list_objects()]
 
 @connected(ret_type=str)
-def get_data(obj):
+def get_data(user, obj):
     ioctx = cluster.open_ioctx(POOL)
     return ioctx.read(str(obj))
 
 @connected(ret_type=bool)
-def delete_object(obj):
+def delete_object(user, obj):
     ioctx = cluster.open_ioctx(POOL)
     ioctx.remove_object(str(obj))
     return True
 
 @connected(ret_type=bool)
-def store_object(name, data):
+def store_object(user, name, data):
     ioctx = cluster.open_ioctx(POOL)
     ioctx.write_full(str(name), str(data))
     return True
 
-def exists(name):
-    return name in get_object_list()
+def exists(user, name):
+    return name in get_object_list(user)
 
 def is_valid_name(name):
     return bool(re.match(r'^[a-zA-Z0-9\-]+$', name))

@@ -23,3 +23,27 @@
 terminate called after throwing an instance of 'ceph::FailedAssertion'
 Aborted (core dumped)
 
+
+./log/SubsystemMap.h: In function 'bool ceph::log::SubsystemMap::should_gather(unsigned int, int)' thread 7f5c77bf3700 time 2016-02-08 10:32:55.202351
+./log/SubsystemMap.h: 62: FAILED assert(sub < m_subsys.size())
+ ceph version 0.80.11 (8424145d49264624a3b0a204aedb127835161070)
+ 1: (()+0x18d5a6) [0x7f5c7d6f15a6]
+ 2: (()+0x1b4da3) [0x7f5c7d718da3]
+ 3: (MonClient::authenticate(double)+0x2ba) [0x7f5c7d8301da]
+ 4: (librados::RadosClient::connect()+0xb98) [0x7f5c7d715418]
+ 5: (ffi_call_unix64()+0x4c) [0x7f5c7f9ccadc]
+ 6: (ffi_call()+0x1fc) [0x7f5c7f9cc40c]
+ 7: (_ctypes_callproc()+0x48e) [0x7f5c7fbe35fe]
+ 8: (()+0x15f9e) [0x7f5c7fbe4f9e]
+ 9: (PyObject_Call()+0x36) [0x505f96]
+ 10: (PyEval_EvalFrameEx()+0x1dfa) [0x49b07a]
+ 11: (PyEval_EvalFrameEx()+0xc72) [0x499ef2]
+ 12: (PyEval_EvalFrameEx()+0xc72) [0x499ef2]
+ 13: /home/kostis/git/django/venv/bin/python() [0x4a1c9a]
+ 14: /home/kostis/git/django/venv/bin/python() [0x4dfe94]
+ 15: (PyEval_CallObjectWithKeywords()+0x6b) [0x4dc9cb]
+ 16: /home/kostis/git/django/venv/bin/python() [0x588b12]
+ 17: (()+0x8182) [0x7f5c82822182]
+ 18: (clone()+0x6d) [0x7f5c8254f47d]
+
+

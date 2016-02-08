@@ -104,8 +104,9 @@ def logout_user(request):
     Object container views
 """
 def present_object_container(request):
+    user = request.user.username
     context = {
-        'data' : sorted(rados.get_object_list()),
+        'data' : sorted(rados.get_object_list(user)),
         'title': 'Dashboard',
     }
     return render(request, 'demo/index.html', context)
@@ -115,7 +116,8 @@ def present_object_container(request):
 """
 def present_object(object_name):
     def handler(request):
-        data = rados.get_data(object_name)
+        user = request.user.username
+        data = rados.get_data(user, object_name)
         view = request.GET.get('view')
         if view == 'createform':
             renderer = create_object_form
@@ -170,7 +172,8 @@ def update_object(object_name):
                                                 kwargs={'view': 'editform'}))
 
         data = form.cleaned_data['data']
-        if rados.store_object(object_name, data):
+        user = request.user.username
+        if rados.store_object(user, object_name, data):
             messages.add_message(request, messages.INFO, 
                                  'Object stored successfully.')
         else:
@@ -194,7 +197,8 @@ def delete_too_hard(object_name):
 
 def delete_object(object_name):
     def handler(request):
-        if rados.delete_object(object_name):
+        user = request.user.username
+        if rados.delete_object(user, object_name):
             messages.add_message(request, messages.INFO,
                 'Object %s deleted!' % object_name)
         else:
@@ -218,12 +222,14 @@ def create_new_object(request):
             'and dashes are allowed.')
         return HttpResponseRedirect(reverse('demo:create'))
 
-    if rados.exists(object_name):
+    user = request.user.username
+    if rados.exists(user, object_name):
         messages.add_message(request, messages.ERROR,
                              'Object already exists!')
         return HttpResponseRedirect(reverse('demo:create'))
 
-    if rados.store_object(object_name, data):
+    user = request.user.username
+    if rados.store_object(user, object_name, data):
         messages.add_message(request, messages.INFO, 
                              'Object created successfully.')
     else:
