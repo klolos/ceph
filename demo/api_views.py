@@ -49,7 +49,7 @@ def authenticated(f):
     def wrapped(request, *args, **kwargs):
         token = request.META.get('HTTP_X_AUTH_TOKEN', None)
         user = get_user(token)
-        if user is None:
+        if user is None or user.username != kwargs['user_name']:
             return unothorized_error()
         request.user = user
         return f(request, *args, **kwargs)
@@ -80,20 +80,20 @@ def send_token(request):
 
 @csrf_exempt
 @authenticated
-def object_container(request):
+def object_container(request, user_name):
     handlers = {
-        'GET' : present_object_container,
-        'POST': create_new_object,
+        'GET' : present_object_container(user_name),
+        'POST': create_new_object(user_name),
     }
     return dispatch(request, handlers)
 
 @csrf_exempt
 @authenticated
-def object_view(request, object_name):
+def object_view(request, user_name, object_name):
     handlers = {
-        'GET'   : present_object(object_name),
-        'PUT'   : update_object(object_name),
-        'DELETE': delete_object(object_name),
+        'GET'   : present_object(user_name, object_name),
+        'PUT'   : update_object(user_name, object_name),
+        'DELETE': delete_object(user_name, object_name),
     }
     return dispatch(request, handlers)
 
@@ -106,14 +106,15 @@ def dispatch(request, handlers):
 """
     Object container API
 """
-def present_object_container(request):
-    content_type = request.META.get('CONTENT_TYPE', 'application/json')
-    user = request.user.username
-    objects = sorted(rados.get_object_list(user))
-    if 'application/xml' in content_type:
-        return container_xml(request, objects)
-    else:
-        return container_json(request, objects)
+def present_object_container(user):
+    def handler(request):
+        content_type = request.META.get('CONTENT_TYPE', 'application/json')
+        objects = sorted(rados.get_object_list(user))
+        if 'application/xml' in content_type:
+            return container_xml(request, objects)
+        else:
+            return container_json(request, objects)
+    return handler
 
 def container_xml(request, objects):
     root = etree.Element('container', name="objects")
@@ -131,25 +132,26 @@ def container_json(request, objects):
     return HttpResponse(serialize_json(document), 
                         content_type="application/json; charset=utf-8")
 
-def create_new_object(request):
-    object_name = request.POST.get('object_name', None)
-    data        = request.POST.get('data', None)
-    if object_name is None or data is None:
-        return response_code(400) # invalid request
-    if not rados.is_valid_name(object_name):
-        return invalid_object_name_error()
-    if not data:
-        return empty_object_body_error()
-    user = request.user.username
-    if rados.store_object(user, object_name, data):
-        return object_created(object_name)
-    else:
-        return service_temporarily_unavailable_error()
+def create_new_object(user):
+    def handler(request):
+        object_name = request.POST.get('object_name', None)
+        data        = request.POST.get('data', None)
+        if object_name is None or data is None:
+            return response_code(400) # invalid request
+        if not rados.is_valid_name(object_name):
+            return invalid_object_name_error()
+        if not data:
+            return empty_object_body_error()
+        if rados.store_object(user, object_name, data):
+            return object_created(user, object_name)
+        else:
+            return service_temporarily_unavailable_error()
+    return handler
 
 """
     Object API
 """
-def present_object(object_name):
+def present_object(user, object_name):
     def handler(request):
         user = request.user.username
         data = rados.get_data(user, object_name)
@@ -159,22 +161,20 @@ def present_object(object_name):
             return response_code(404) # not found
     return handler
 
-def update_object(object_name):
+def update_object(user, object_name):
     def handler(request):
         if not rados.is_valid_name(object_name):
             return invalid_object_name_error()
         if not request.body:
             return empty_object_body_error()
-        user = request.user.username
         if rados.store_object(user, object_name, request.body):
-            return object_created(object_name)
+            return object_created(user, object_name)
         else:
             return service_temporarily_unavailable_error()
     return handler
 
-def delete_object(object_name):
+def delete_object(user, object_name):
     def handler(request):
-        user = request.user.username
         if rados.delete_object(user, object_name):
             return response_code(204) # no content
         else:
@@ -184,7 +184,7 @@ def delete_object(object_name):
 """
     Standard responses
 """
-def object_created(object_name):
+def object_created(user, object_name):
     document = \
     {
         "document":
@@ -192,7 +192,7 @@ def object_created(object_name):
             "message": "Object created successfully.",
             "code"   : 201,
             "title"  : "Created",
-            "uri"    : reverse('demo:api-object', args=(object_name,)),
+            "uri"    : reverse('demo:api-object', args=(user, object_name,)),
         }
     }
     return HttpResponse(serialize_json(document), status=201,

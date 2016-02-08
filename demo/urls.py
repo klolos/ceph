@@ -12,12 +12,13 @@ urlpatterns = [
     # /auth/tokens/ 
     url(r'^auth/tokens/$', api_views.tokens, name='tokens'),
     # /ui/objects/           (GET, POST)
-    url(r'^ui/objects/$', ui_views.object_container, name='container'),
+    url(r'^ui/(?P<user_name>[a-zA-Z]+)/$', ui_views.object_container, name='container'),
     # /ui/objects/myobject/  (GET, PUT, DELETE)
-    url(r'^ui/objects/(?P<object_name>[a-zA-Z0-9\-\;]+)/$', ui_views.object_view, name='object'),
+    url(r'^ui/(?P<user_name>[a-zA-Z]+)/(?P<object_name>[a-zA-Z0-9\-\;]+)/$', ui_views.object_view, name='object'),
     # /api/objects/          (GET, POST)
-    url(r'^api/objects/$', api_views.object_container, name='api-container'),
+    url(r'^api/(?P<user_name>[a-zA-Z]+)/$', api_views.object_container, name='api-container'),
     # /api/objects/myobject/ (GET, PUT, DELETE)
-    url(r'^api/objects/(?P<object_name>[a-zA-Z0-9\-\.]+)/$', api_views.object_view, name='api-object'),
+    url(r'^api/(?P<user_name>[a-zA-Z]+)/(?P<object_name>[a-zA-Z0-9\-\.]+)/$', 
+        api_views.object_view, name='api-object'),
 ]
 

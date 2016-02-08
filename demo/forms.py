@@ -26,10 +26,13 @@ class LoginForm(Form):
     attrs = {'autofocus': 'autofocus', 'required': 'true'}
     username = CharField(widget=TextInput(attrs=attrs))
 
+    # password
     attrs = {'required': 'true'}
     password = CharField(widget=PasswordInput(attrs=attrs))
 
+    # remember me
     remember_me = BooleanField(required=False, initial=True)
     
-    next_url = CharField(widget=HiddenInput())
+    # next url
+    next_url = CharField(required=False, widget=HiddenInput())
 

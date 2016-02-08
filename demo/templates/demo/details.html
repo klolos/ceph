@@ -6,22 +6,22 @@
 {% include 'demo/messages.html' %}
 
 <form name="details_form" method="post" 
-      action="{% url 'demo:object' object_name %}?_method=delete">
+      action="{% url 'demo:object' user object_name %}?_method=delete">
   {% csrf_token %}
   {% if data %}
     <div class="jumbotron">
       <p class="lead" id="detailsbox">{{ data }}</p>
     </div>
     <a class="btn btn-lg btn-primary" 
-       href="{% url 'demo:object' object_name %}?view=editform" role="button">Edit</a>
+       href="{% url 'demo:object' user object_name %}?view=editform" role="button">Edit</a>
     <a class="btn btn-lg btn-primary" 
-       href="{% url 'demo:container' %}" role="button">Back</a>
+       href="{% url 'demo:container' user %}" role="button">Back</a>
     <input type="hidden" name="supporttype" />
     <input type="submit" value="Delete" class="btn btn-lg btn-danger"/>
   {% else %}
     <h4>Object <strong>{{ object_name }}</strong> not found.</h4><br>
     <a class="btn btn-lg btn-primary" 
-       href="{% url 'demo:container' %}" role="button">Back</a>
+       href="{% url 'demo:container' user %}" role="button">Back</a>
   {% endif %}
 </form>
 
