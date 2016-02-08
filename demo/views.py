@@ -11,6 +11,20 @@ from django.views import generic
 from .utils import radosBindings as rados
 from .forms import CreateObjectForm, EditObjectForm, LoginForm
 
+def require_resource_owner(f):
+    """
+        Verifies that the account name specified in the URL is
+        the account name with which the user logged in.
+    """
+    def wrapped(request, user_name, *args, **kwargs):
+        login_name = request.user.username
+        if user_name != login_name:
+            messages.add_message(request, messages.ERROR,
+                                 'Incorrect account name.')
+            return HttpResponseRedirect(reverse('demo:container', 
+                                                args=(login_name,)))
+        return f(request, user_name, *args, **kwargs)
+    return wrapped
 
 def home(request):
     return HttpResponseRedirect(reverse('demo:login'))
@@ -29,6 +43,7 @@ def logout(request):
     return dispatch(request, handlers)
 
 @login_required
+@require_resource_owner
 def object_container(request, user_name):
     handlers = {
         'GET' : present_object_container,
@@ -37,6 +52,7 @@ def object_container(request, user_name):
     return dispatch(request, handlers)
 
 @login_required
+@require_resource_owner
 def object_view(request, user_name, object_name):
     handlers = {
         'GET'   : present_object(object_name),
