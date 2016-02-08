@@ -74,24 +74,38 @@ def connected(ret_type):
 @connected(ret_type=list)
 def get_object_list(user):
     ioctx = cluster.open_ioctx(POOL)
-    return [o.key for o in ioctx.list_objects()]
+    objects = []
+    for obj in ioctx.list_objects(): # this looks REALLY bad :)
+        obj_owner, obj_name = _parse_object_name(obj)
+        if obj_owner == user:
+            objects.append(obj_name)
+    return objects
 
 @connected(ret_type=str)
 def get_data(user, obj):
+    obj_name = create_object_name(user, obj)
     ioctx = cluster.open_ioctx(POOL)
-    return ioctx.read(str(obj))
+    return ioctx.read(obj_name)
 
 @connected(ret_type=bool)
 def delete_object(user, obj):
+    obj_name = create_object_name(user, obj)
     ioctx = cluster.open_ioctx(POOL)
-    ioctx.remove_object(str(obj))
+    ioctx.remove_object(obj_name)
     return True
 
 @connected(ret_type=bool)
 def store_object(user, name, data):
+    obj_name = create_object_name(user, name)
     ioctx = cluster.open_ioctx(POOL)
-    ioctx.write_full(str(name), str(data))
+    ioctx.write_full(obj_name, str(data))
     return True
+
+def _parse_object_name(obj_name):
+    return obj_name.key.split(';')
+
+def create_object_name(user, name):
+    return str("%s;%s" % (user, name))
 
 def exists(user, name):
     return name in get_object_list(user)
